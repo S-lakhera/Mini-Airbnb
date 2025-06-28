@@ -1,0 +1,51 @@
+<% layout('/layouts/boilerplate') -%>
+    <div class="row mt-3">
+        <div class=" offset-4 ">
+            <h1>Signup on Wanderlust</h1>
+        </div>
+        <div class="col-8 offset-3 ">
+            <form action="/signup" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label"></label>
+                    <input type="text" 
+                    name="username" 
+                    placeholder="Enter your username Here..." 
+                    class="form-control" 
+                    id="username"
+                    required
+                    >
+                    <div class="valid-feedback">
+                        Looks Good...
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label"></label>
+                    <input type="email" 
+                    name="email" 
+                    placeholder="Enter your email Here..." 
+                    class="form-control" 
+                    id="email"
+                    required
+                    >
+                    <div class="valid-feedback">
+                        Looks Good...
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label"></label>
+                    <input type="password" 
+                    name="password" 
+                    placeholder="Enter your password Here..." 
+                    class="form-control" 
+                    id="password"
+                    required
+                    >
+                    <div class="valid-feedback">
+                        Looks Good...
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success offset-4 my-3">Signup</button>
+                <p class="offset-3" >If already registered ?<a href="/login"><u><b>Login</b></u></a></p>
+            </form>
+        </div>
+    </div>
