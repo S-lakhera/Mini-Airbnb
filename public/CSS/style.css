@@ -16,26 +16,25 @@ body {
     flex-direction: column;
 }
 
-/* .container{
-    height: 500rem;
-    padding: 0 !important;
-} */
 
 /* Navbar */
 
 .navbar {
     height: 5rem;
     background-color: #ebebeb;
+    /* display: flex; */
 }
 
 .fa-compass-drafting {
-    color: #e41d55;
+    color: #e41d55 ;
     font-size: 2rem;
     margin-left: 10px;
 }
 
 .nav-link {
     color: #222 !important;
+    /* font-size: 20px !important;
+    padding-left: 0px !important; */
 }
 
 .nav-link:hover {
@@ -218,3 +217,7 @@ a {
 .tax-Info{
     display: none;
 }
+
+
+ 
+  
