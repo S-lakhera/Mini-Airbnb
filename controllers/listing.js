@@ -87,3 +87,14 @@ module.exports.deleteListing = async (req, res) => {
     req.flash("success","Listing Deleted Successfully!!");
     res.redirect("/listings");
 }
+
+module.exports.loadMoreListings = async (req, res) => {
+    const offset = parseInt(req.query.offset) || 0;
+    const limit = 12;
+
+    const listings = await Listing.find({})
+        .skip(offset)
+        .limit(limit);
+
+    res.json(listings);
+};

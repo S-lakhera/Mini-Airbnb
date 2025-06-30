@@ -1,25 +1,41 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listing");
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
-main().then((res) => { 
-    console.log("Connected to DB");
-})
-.catch((err) => {console.log(err);})
- 
-async function main(){
+// Mapbox integration
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = process.env.MAP_TOKEN;
+const geocodingClient = mbxGeocoding({ accessToken: mapToken });
+
+main().then(() => {
+    console.log("✅ Connected to DB");
+}).catch((err) => {
+    console.error("❌ DB Connection Error:", err);
+}); 
+
+async function main() {
     await mongoose.connect(process.env.mongo_url);
 }
 
 const initDB = async () => {
     await Listing.deleteMany({});
-    initData.data = initData.data.map((obj) => ({
-        ...obj, 
-        owner:"685794bb0171272f644fe6b9",
-    }))
+    
+    // Enrich data with geometry from Mapbox
+    for (let obj of initData.data) {
+        const geoData = await geocodingClient.forwardGeocode({
+            query: obj.location,
+            limit: 1
+        }).send();
+
+        obj.geometry = geoData.body.features[0]?.geometry || {
+            type: "Point",
+            coordinates: [0, 0] // fallback in case Mapbox fails
+        };
+    }
+
     await Listing.insertMany(initData.data);
-    console.log("Data was Initialized");
-}
- 
+    console.log("🌱 Data was Initialized with Geometry");
+};
+
 initDB();

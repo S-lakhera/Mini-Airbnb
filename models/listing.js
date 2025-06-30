@@ -35,14 +35,14 @@ const listingSchema = new mongoose.Schema({
             required:true
         },
         coordinates:{
-            type:[Number],
+            type:[Number], 
             required:true
         }
     },
     category:{
         type:String,
-        enum:["Trending","Rooms","Iconic Cities","Pools","Beach","Mountains","Farms","Lake Front","Cabin","Castle","Other"],
-        default:"Other",
+        enum:["Trending","Rooms","Iconic Cities","Pools","Beach","Mountains","Farms","Lake Front","Camping","Castle","Other"],
+        default:"Other", 
     }
 });
 

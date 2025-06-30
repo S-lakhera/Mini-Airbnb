@@ -20,6 +20,9 @@ router
 //Render NewListing Form Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
+// Load More Listings API
+router.get("/load", wrapAsync(listingController.loadMoreListings));
+
 //Show Route, Update Route, Delete Route
 router.route("/:id")
     .get(wrapAsync(listingController.showListings))
@@ -29,10 +32,12 @@ router.route("/:id")
         validateListing, 
         wrapAsync(listingController.updateListing))
 
-    .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
-
+    .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing)
+    );
 
 //Edit Route
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
+
+
 
 module.exports = router;

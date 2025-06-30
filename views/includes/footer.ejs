@@ -1,14 +1,43 @@
+<main class="container">
+  <!-- Your content here (signup form, listings, etc) -->
+</main>
+
 <footer>
-    <div class="f-info" >
-        <div class="f-info-socials">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
-        </div>
-        <div>&copy; Wanderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privay</a>
-            <a href="/terms">Terms</a>
-        </div>
+  <div class="f-info">
+    <div class="f-info-socials">
+      <i class="fa-brands fa-square-facebook"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
     </div>
+    <div id="footer-year">&copy; <span id="year"></span> Wanderlust Private Limited</div>
+    <div class="f-info-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+    <!-- Scroll to Top Button -->
+<button id="scrollTopBtn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
+  </div>
 </footer>
+<script>
+    // Dynamic Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  
+    // Scroll-to-Top
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+  
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+  
+    scrollTopBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
+  

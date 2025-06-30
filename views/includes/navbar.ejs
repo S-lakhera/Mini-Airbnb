@@ -1,92 +1,4 @@
-<style>
-  .search-btn {
-    background-color: #e41d55;
-    color: white;
-    display: flex;
-    border-radius: 25px;
-    padding: 8px 20px 3px 20px;
-    font-weight: 700;
-    /* padding: 0 2rem 0 1rem; */
-  } 
-
-  .search-btn:hover {
-    background-color: #e41d55;
-    color: white;
-  }
-
-  .search-btn i {
-    padding: 5px 6px 0px 0px;
-  }
-
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-  }
-  .search-area{
-    margin-left: 18% !important;
-  }
-  .collapsed-search-area{
-    display: none;
-  }
-   /* For better mobile spacing */
-   @media (max-width: 768px) {
-    .navbar-nav {
-      display: flex;
-      flex-direction: column;
-      align-items:end;
-      gap: 0.25rem;
-      padding: 1rem 0;
-    }
-    /* Make nav links look good inside the collapsed menu */
-.navbar-nav .nav-link {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    text-align:end;
-    background-color: #fff !important;
-  }
-  
-  /* Highlight on hover for clarity */
-  .navbar-nav .nav-link:hover {
-    background-color: #f8f9fa;
-    color: #e41d55;
-    border-radius: 0.5rem;
-  }
-  
-  .search-area{
-    display: none;
-  }
-  .collapsed-search-area{
-    justify-content: center;
-    align-items: center;
-  display:flex;
-  padding: 1px ;
-
-  /* position: relative;
-  margin: 2%; */
-  position: fixed;
-  right: 30%;
-}
-.search-btn-2 {
-  background-color: #e41d55;
-  color: white;
-  display: flex;
-  border-radius: 25px;
-  /* padding: 8px 8px px 8px ; */
-  font-weight: 500;
-  align-items: center;
-  font-size: 14px;
-  /* padding: 0 2rem 0 1rem; */
-} 
-.search-inp-2{
-  border-radius: 25px;
-  text-align: center;
-  width: 35vw;
-  /* padding: 6px 12px; */
-}
-  }
-</style>
+<link rel="stylesheet" href="/CSS/navbar.css">
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top mb-3">
     <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass-drafting"></i></a>
 
@@ -100,9 +12,9 @@
         <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
       </form>
     </div>
-
+ 
     <div class="navbar-nav ms-auto collapsed-search-area">
-      <form role="search" class="d-flex">
+      <form role="search" class="d-flex" onsubmit="return false;">
         <input type="search" class="form-control search-inp-2 me-2" placeholder="Search" aria-label="search">
         <button class="btn search-btn-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
