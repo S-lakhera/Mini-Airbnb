@@ -16,7 +16,7 @@ function applyFilterLogic() {
       filters.forEach(f => f.classList.remove("active-filter"));
       filter.classList.add("active-filter");
     });
-  });
+  }); 
   // Set default "All" as active on initial load
   window.addEventListener("DOMContentLoaded", () => {
     const defaultFilter = document.querySelector('.filter[data-category="All"]');
@@ -29,7 +29,7 @@ function applyFilterLogic() {
   
   
   
-  // Reusable filtering function
+  // Reusable Searching function
   function filterListings(query) {
     const lowerQuery = query.trim().toLowerCase();
   

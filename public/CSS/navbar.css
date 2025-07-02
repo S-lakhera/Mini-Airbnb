@@ -29,7 +29,7 @@
   .collapsed-search-area {
       display: none;
   }
- 
+  
   /* For better mobile spacing */
   @media (max-width: 768px) {
       .navbar-nav {

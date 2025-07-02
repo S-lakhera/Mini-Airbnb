@@ -124,15 +124,18 @@ footer {
 
 /* Card */
 .listing-card {
-    margin-bottom: 2rem;
-    padding: 1rem !important;
+    margin-bottom: 1rem;
+    padding: 0.5rem !important;
     border: none !important;
     cursor: pointer;
+    transition: none;
 }
-
+.page-loaded .card {
+    transition: scale 0.25s ease-in-out;
+}
 .card:hover {
     scale: 1.01;
-    transition: 0.25s ease-in-out;
+    /* transition: 0.25s ease; */
 }
 
 a {
@@ -159,15 +162,15 @@ a {
 }
 
 .card-img-overlay:hover {
-    opacity: 0.15;
-    background-color: #fff;
+    opacity: 0.1;
+    background-color: #ffffff;
     transition: 0.3s;
 }
 
-.heading {
+/* .heading {
     position: relative;
     left: 25px;
-}
+} */
 
 /* Add New Listing Page */
 .add-btn,
@@ -213,13 +216,14 @@ a {
   
 /* Filters Styling */
   #filters{
-    height: 60px;
+    height: auto;
+    min-height: 60px;
     width: auto;
     justify-self: center;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid rgba(0, 0, 0, 0.53);
-    border-radius: 35% 35% / 30em 35em 30em 35em;
+    border: 1px dotted rgba(0, 0, 0, 0.376);
+    border-radius:  40% 40% / 30em 35em 30em 35em;
    
     justify-content: center;
     gap: 2rem;
@@ -230,6 +234,8 @@ a {
     text-align: center;
     opacity: 0.8;
     scale: 0.9;
+    padding: 0;
+    margin: 0;
   }
   .filter:hover{
     opacity: 1;
@@ -239,15 +245,29 @@ a {
   }
   .filter p{
     font-size: 0.8rem;
+    margin: 0;padding: 0;
   }
-.tax-toggle{
-    border: 1px solid rgba(0, 0, 0, 0.346);
-    border-radius: 20% 20% / 30px 30px;
-    height: 45px;
-    width: 180px;
-    padding-top: 8px;
-    padding-right: 10px;
 
+ @media (max-width: 500px){
+    #filters{
+        gap: 1rem;
+        justify-content: center;
+        padding: 10px;
+    }
+ }
+
+.tax-toggle{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.346);
+    border-radius: 30% 30% / 30px 30px;
+    height: 30px;
+    font-size: 14px;
+    padding: 2px 8px;
+    margin-top: 7px;
+    /* min-width: 12vw; */
+    justify-content: center;
+    justify-self: center;
 }
 .form-check-input{
     cursor: pointer;
