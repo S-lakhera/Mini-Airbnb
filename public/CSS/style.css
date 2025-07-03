@@ -181,7 +181,7 @@ a {
 }
 
 /* Show Page  */
-.show-img {
+/* .show-img {
     height: 40vh;
 }
 
@@ -198,15 +198,13 @@ a {
     position: relative;
     left: 16px;
     bottom: 10px;
-}
-
-
-#map {
-    height: 400px;
-    width: 50vw;
+} */
+/* #map {
+    height: 300px;
+    width: auto;
     border: 1px solid rgba(0, 0, 0, 0.408);
     border-radius: 25px;
-}
+} */
 
 .active-filter {
     border-bottom: 2px solid #e41d55;

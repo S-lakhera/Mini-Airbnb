@@ -26,6 +26,7 @@ module.exports.showListings = async (req, res) => {
         req.flash("error", "Listing is Deleted / Not found...");
         res.redirect("/listings");
     }
+    
     res.render("listings/show.ejs", { listing });
 
 };
@@ -62,7 +63,7 @@ module.exports.renderEditForm = async (req, res) => {
     }
     let imageUrl = listing.image.url;
     imageUrl = imageUrl.replace("/upload","/upload/w_250")
-    res.render("listings/edit.ejs", { listing, imageUrl });
+    res.render("listings/edit.ejs", { listing, imageUrl }); 
 }
 
 module.exports.updateListing = 

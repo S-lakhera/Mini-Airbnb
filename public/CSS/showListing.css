@@ -1,0 +1,63 @@
+/* showListing.css */
+
+.show-container {
+  /* margin-top: 20px; */
+  padding: 9px;
+  margin-bottom: 7rem;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.img-container {
+  max-height: 80vh;
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+.listing-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* gap: 0.5rem; */
+}
+
+.edit-delete-btns {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+.review-form-section,
+.reviews-section,
+.map-section {
+  margin-top: 40px;
+}
+
+#map {
+  height: 350px;
+  /* width: 400px; */
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+/* Starability tweaks */
+.starability-checkmark label {
+  font-size: 1.4rem;
+}
+
+textarea#comment {
+  border-radius: 10px;
+  padding: 10px;
+}
