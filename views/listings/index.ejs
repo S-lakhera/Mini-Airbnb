@@ -53,7 +53,7 @@
     </button> -->
   </div> <br>
   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2" id="listing-container">
-    <% listings.slice(0,20).forEach(listing=> { %>
+    <% for(let listing of listings) { %>
       <a href="/listings/<%= listing._id %>">
         <div class="card listing-card" id="card" data-category="<%= listing.category %>"
           data-location="<%= listing.location %> <%= listing.country %> <%= listing.title %>">
@@ -70,15 +70,15 @@
           </div>
         </div>
       </a>
-      <% }) %>
+      <% } %>
   </div>
-  <div class="text-center my-4">
+  <!-- <div class="text-center my-4">
     <button id="load-more-btn" class="btn btn-danger px-4">Load More</button>
-  </div>
+  </div> -->
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("page-loaded");
     });
   </script>
-  <script src="/JS/loadMore.js" defer></script>
+  <!-- <script src="/JS/loadMore.js" defer></script> -->
   <script src="/JS/filterListing.js"></script>

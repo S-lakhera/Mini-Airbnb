@@ -1,104 +1,223 @@
 <% layout('/layouts/boilerplate') -%>
-    <style>
-        button {
-            border-radius: 10px !important;
-        }
 
-        h2 {
-            padding: 10px;
-            border-radius: 15px;
-            /* background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%); */
-            background: linear-gradient(to right, #e41d55e9, #efd2d2 50%, #e41d55e9);
-            text-align: center;
-        }
-    </style>
-    <br>
-    <div class="row">
-        <div class="col-8 offset-2">
+<style>
+    body {
+        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+    }
 
-            <body>
-                <h2>Create New Listing</h2>
-                <hr> <br>
-                <div>
-                    <form action="/listings" method="post" class="needs-validation" novalidate
-                        enctype="multipart/form-data">
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="text" name="listing[title]" placeholder="Enter Title" class="form-control"
-                                    required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Title for the listing.
-                                </div>
-                            </div>
-                            <div class="col-6 ">
-                                <label for="category" class="form-label">Select Category:</label> <br>
-                                <select id="listing[category]" name="listing[category]" class="form-control" required>
-                                    <!-- <option value="Other" selected>others</option> -->
-                                    <option value="Trending">Trending</option>
-                                    <option value="Rooms">Rooms</option>
-                                    <option value="Iconic Cities">Iconic Cities</option>
-                                    <option value="Pools">Pools</option>
-                                    <option value="Beach">Beach</option>
-                                    <option value="Mountains">Mountains</option>
-                                    <option value="Farms">Farms</option>
-                                    <option value="Lake Front">Lake Front</option>
-                                    <option value="Cabin">Cabin</option>
-                                    <option value="Castle">Castle</option>
-                                </select>
+    .form-container {
+        min-width: 450px;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 15px;
+        height: fit-content;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        transition: height 0.4s ease;
+    }
 
-                            </div>
-                        </div>
+    .form-step {
+        display: none;
+        transition: opacity 0.5s ease;
+    }
 
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="listing[description]" cols="20" rows="2"
-                                placeholder="Description of listing" class="form-control" required></textarea>
-                        </div>
+    .form-step.active {
+        display: block;
+    }
 
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Upload Image</label>
-                            <input type="file" name="listing[image]" class="form-control" required>
-                        </div>
+    .step-buttons {
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
 
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Price</label>
-                            <input type="number" name="listing[price]" placeholder="Ex. 1500/night" class="form-control"
-                                required>
-                            <div class="invalid-feedback">
-                                Price is mandatory.
-                            </div>
-                        </div>
+    .btn-nav {
+        border-radius: 10px;
+        padding: 10px 20px;
+        border: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-                        <div class="row ">
-                            <div class="mb-3 col-md-6">
-                                <label for="location" class="form-label">Location</label>
-                                <input type="text" name="listing[location]" placeholder="Ex. Jaipur,Rajasthan"
-                                    class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid Location/City.
-                                </div>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+    .btn-nav:hover {
+        opacity: 0.85;
+    }
 
-                            <div class="mb-3 col-md-6">
-                                <label for="country" class="form-label">Country</label>
-                                <input type="text" name="listing[country]" placeholder="Ex. India" class="form-control">
-                                <div class="invalid-feedback">
-                                    Please provide a valid country.
-                                </div>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
-                        </div>
+    .btn-next {
+        background-color: #2196f3;
+        color: white;
+    }
 
-                        <br>
-                        <button class="btn add-btn col-12">Add</button><br>
-                    </form><br>
-                </div>
-            </body>
-        </div>
+    .btn-back {
+        background-color: #ccc;
+        color: black;
+    }
+
+    .btn-submit {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    .progressbar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        counter-reset: step;
+    }
+
+    .progress-step {
+        width: 30px;
+        height: 30px;
+        background-color: #e0e0e0;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .progress-step::before {
+        content: counter(step);
+        counter-increment: step;
+    }
+
+    .progress-step.active {
+        background-color: #2196f3;
+        color: white;
+    }
+
+    .progress-step::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background-color: #e0e0e0;
+        top: 50%;
+        left: 30px;
+        transform: translateY(-50%);
+        z-index: -1;
+    }
+
+    .progress-step:last-child::after {
+        display: none;
+    }
+
+    .progress-step.active::after {
+        background-color: #2196f3;
+    }
+</style>
+
+<div class="form-container">
+    <div class="progressbar">
+        <div class="progress-step step1 active"></div>
+        <div class="progress-step step2"></div>
+        <div class="progress-step step3"></div>
     </div>
+
+    <form action="/listings" method="POST" enctype="multipart/form-data" class="listing-form needs-validation" novalidate>
+        <!-- Step 1 -->
+        <div class="form-step step-1 active">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="listing[title]" class="form-control" placeholder="Give your listing a catchy title" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="listing[category]" class="form-select" required>
+                    <option disabled selected>Select category</option>
+                    <option value="Trending">Trending</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Iconic Cities">Iconic Cities</option>
+                    <option value="Pools">Pools</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Lake Front">Lake Front</option>
+                    <option value="Cabin">Cabin</option>
+                    <option value="Castle">Castle</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" class="form-control" placeholder="Describe what makes your place special..." required></textarea>
+            </div>
+
+            <div class="step-buttons">
+                <span></span>
+                <button type="button" class="btn-nav btn-next">Next ➡️</button>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step step-2">
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input type="file" name="listing[image]" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" name="listing[price]" placeholder="Ex. 1500/night" class="form-control" required>
+            </div>
+
+            <div class="step-buttons">
+                <button type="button" class="btn-nav btn-back">⬅️ Back</button>
+                <button type="button" class="btn-nav btn-next">Next ➡️</button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step step-3">
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="listing[location]" class="form-control" placeholder="Jaipur, Rajasthan" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" name="listing[country]" class="form-control" placeholder="India, China" required>
+            </div>
+
+            <div class="step-buttons">
+                <button type="button" class="btn-nav btn-back">⬅️ Back</button>
+                <button type="submit" class="btn-nav btn-submit">🚀 Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    const nextBtns = document.querySelectorAll(".btn-next");
+    const backBtns = document.querySelectorAll(".btn-back");
+    const steps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
+
+    let formStep = 0;
+
+    nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            steps[formStep].classList.remove("active");
+            progressSteps[formStep].classList.remove("active");
+            formStep++;
+            steps[formStep].classList.add("active");
+            progressSteps[formStep].classList.add("active");
+        });
+    });
+
+    backBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            steps[formStep].classList.remove("active");
+            progressSteps[formStep].classList.remove("active");
+            formStep--;
+            steps[formStep].classList.add("active");
+            progressSteps[formStep].classList.add("active");
+        });
+    });
+</script>

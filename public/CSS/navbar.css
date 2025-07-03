@@ -1,94 +1,102 @@
-  .search-btn {
-      background-color: #e41d55;
-      color: white;
-      display: flex;
-      border-radius: 25px;
-      padding: 8px 20px 3px 20px;
-      font-weight: 700;
-      /* padding: 0 2rem 0 1rem; */
-  }
+.search-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.074);
+    border-radius: 5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.099);
+    padding: 0.5rem;
 
-  .search-btn:hover {
-      background-color: #e41d55;
-      color: white;
-  }
+}
 
-  .search-btn i {
-      padding: 5px 6px 0px 0px;
-  }
+.search-btn {
+    background-color: #e41d55;
+    color: white;
+    display: flex;
+    border-radius: 5rem !important;
+    /* padding: 10px 8px 2px 8px; */
+    font-weight: 700 !important;
+    /* padding: 8px 1px; */
+}
 
-  .search-inp {
-      border-radius: 25px;
-      padding: 0.5rem 3rem 0.5rem 3rem;
-  }
+.search-btn:hover {
+    background-color: #f80c4f;
+    color: white;
+}
 
-  .search-area {
-      margin-left: 18% !important;
-  }
+.search-btn i {
+    /* padding: 2px;  */
+    position: relative;
+    top: 6px;
+}
 
-  .collapsed-search-area {
-      display: none;
-  }
-  
-  /* For better mobile spacing */
-  @media (max-width: 768px) {
-      .navbar-nav {
-          display: flex;
-          flex-direction: column;
-          align-items: end;
-          gap: 0.25rem;
-          padding: 1rem 0;
-      }
+.search-inp {
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+}
 
-      /* Make nav links look good inside the collapsed menu */
-      .navbar-nav .nav-link {
-          padding: 0.75rem 1rem;
-          font-size: 1rem;
-          font-weight: 600;
-          color: #333;
-          text-align: end;
-          background-color: #fff !important;
-      }
 
-      /* Highlight on hover for clarity */
-      .navbar-nav .nav-link:hover {
-          background-color: #f8f9fa;
-          color: #e41d55;
-          border-radius: 0.5rem;
-      }
+.collapsed-search-area {
+    display: none;
+}
 
-      .search-area {
-          display: none;
-      }
+/* For better mobile spacing */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 0.25rem;
+        padding: 1rem 0;
+    }
 
-      .collapsed-search-area {
-          justify-content: center;
-          align-items: center;
-          display: flex;
-          padding: 1px;
+    /* Make nav links look good inside the collapsed menu */
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        text-align: end;
+        background-color: #fff !important;
+    }
 
-          /* position: relative;
-  margin: 2%; */
-          position: fixed;
-          right: 30%;
-      }
+    /* Highlight on hover for clarity */
+    .navbar-nav .nav-link:hover {
+        background-color: #f8f9fa;
+        color: #e41d55;
+        border-radius: 0.5rem;
+    }
 
-      .search-btn-2 {
-          background-color: #e41d55;
-          color: white;
-          display: flex;
-          border-radius: 25px;
-          /* padding: 8px 8px px 8px ; */
-          font-weight: 500;
-          align-items: center;
-          font-size: 14px;
-          /* padding: 0 2rem 0 1rem; */
-      }
+    .search-area {
+        display: none;
+    }
 
-      .search-inp-2 {
-          border-radius: 25px;
-          text-align: center;
-          width: 35vw;
-          /* padding: 6px 12px; */
-      }
-  }
+    .collapsed-search-area {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        padding: 1px;
+        position: fixed;
+        right: 30%;
+    }
+
+    .search-btn-2 {
+        background-color: #e41d55;
+        color: white;
+        display: flex;
+        border-radius: 5rem !important;
+        /* padding: 8px 8px px 8px ; */
+        font-weight: 500;
+        align-items: center;
+        font-size: 14px;
+        /* padding: 0 2rem 0 1rem; */
+    }
+
+    .search-inp-2 {
+        border-radius: 25px;
+        text-align: center;
+        width: 32vw;
+        margin-left: 1rem !important;
+        /* padding: 6px 12px; */
+    }
+}

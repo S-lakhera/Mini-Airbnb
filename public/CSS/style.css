@@ -14,7 +14,15 @@ body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
     flex-direction: column;
+}
+
+.container {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
 }
 
 
@@ -22,8 +30,7 @@ body {
 
 .navbar {
     height: 5rem;
-    background-color: #ebebeb;
-    /* display: flex; */
+    background-color: #f6f5f5;
 }
 
 .fa-compass-drafting {
@@ -34,13 +41,12 @@ body {
 
 .nav-link {
     color: #222 !important;
-    /* font-size: 20px !important;
-    padding-left: 0px !important; */
 }
 
 .nav-link:hover {
     font-weight: bold;
     transition: 0.25s;
+    border-bottom: 2px solid #fe424d !important;
 }
 
 /* Footer styling */
@@ -50,6 +56,7 @@ footer {
     text-align: center;
     width: 100%;
     box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 7rem;
 }
 
 .f-info {
@@ -167,44 +174,13 @@ a {
     transition: 0.3s;
 }
 
-/* .heading {
-    position: relative;
-    left: 25px;
-} */
 
-/* Add New Listing Page */
 .add-btn,
 .edit-btn {
     background-color: #e41d55 !important;
     border: none !important;
     color: #fff !important;
 }
-
-/* Show Page  */
-/* .show-img {
-    height: 40vh;
-}
-
-.btns {
-    display: flex;
-}
-
-.show-card {
-    padding: 0;
-    margin: 0;
-}
-
-.show-btn {
-    position: relative;
-    left: 16px;
-    bottom: 10px;
-} */
-/* #map {
-    height: 300px;
-    width: auto;
-    border: 1px solid rgba(0, 0, 0, 0.408);
-    border-radius: 25px;
-} */
 
 .active-filter {
     border-bottom: 2px solid #e41d55;
@@ -286,3 +262,8 @@ a {
     to { opacity: 1; transform: translateY(0); }
   }
   
+.alert-success,.alert-danger{
+    margin: 1px !important;
+    margin-bottom: 10px !important;
+    
+}

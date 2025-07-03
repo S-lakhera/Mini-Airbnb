@@ -1,33 +1,101 @@
 <% layout('/layouts/boilerplate') -%>
-    <div class="row mt-3">
-        <div style="text-align: center;">
-            <h1>Login on Wanderlust</h1>
-        </div>
-        <div class="col-8 offset-3 ">
-            <form action="/login" method="post" class="needs-validation" novalidate>
-                <div class="mb-3">
-                    <label for="username" class="form-label"></label>
-                    <input type="text" 
-                    name="username" 
-                    placeholder="Username ..." 
-                    class="form-control" 
-                    id="username"
-                    required
-                    >
-                </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label"></label>
-                    <input type="password" 
-                    name="password" 
-                    placeholder="Password Here..." 
-                    class="form-control" 
-                    id="password"
-                    required
-                    >
-                </div>
-                <button type="submit" class="btn btn-success offset-4 my-3">Login</button>
-                <p class="offset-3" >If not registered ?<a href="/signup"><u><b>Signup</b></u></a></p>
-            </form>
-        </div>
+<style>
+    body {
+        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+    }
+
+    .login-container {
+        max-width: 450px;
+        margin: 12px auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+        transition: 0.3s ease;
+    }
+
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .login-header h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        padding: 10px 0;
+        background: #f2f2f2;
+        border-radius: 12px;
+    }
+
+    .form-control {
+        border-radius: 12px;
+    }
+
+    .btn-login {
+        width: 100%;
+        background-color: #2196f3;
+        color: white;
+        font-weight: 600;
+        border: none;
+        padding: 12px;
+        border-radius: 12px;
+        transition: 0.3s ease;
+    }
+
+    .btn-login:hover {
+        background-color: #1976d2;
+    }
+
+    .login-footer {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .login-footer a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #2196f3;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-header">
+        <h2>Login to Wanderlust</h2>
     </div>
+
+    <form action="/login" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text"
+                name="username"
+                id="username"
+                class="form-control"
+                placeholder="Username..."
+                required>
+            <div class="invalid-feedback">Username is required.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                placeholder="Password..."
+                required>
+            <div class="invalid-feedback">Password is required.</div>
+        </div>
+
+        <button type="submit" class="btn btn-login mt-2">🔐 Login</button>
+
+        <div class="login-footer">
+            <p>Not registered yet? <a href="/signup"><u>Sign up here</u></a></p>
+        </div>
+    </form>
+</div>
