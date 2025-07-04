@@ -17,7 +17,7 @@ async (req, res) => {
         req.flash("error", error.message);
         res.redirect("/signup");
     }
-};
+}; 
 
 module.exports.login = async (req, res) => {
     req.flash("success", `Welcome back, ${req.user.username}!`);

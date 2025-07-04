@@ -19,6 +19,14 @@
         transition: height 0.4s ease;
     }
 
+    @media (max-width:400px){
+        .form-container{
+            width:100%;
+            padding: 20px;
+            min-width: auto;
+        }
+    }
+
     .form-header {
         text-align: center;
         margin-bottom: 20px;
@@ -54,10 +62,10 @@
     }
 
     img.preview-img {
-        max-width: 100%;
+        max-width: 40%;
         border-radius: 10px;
         margin-bottom: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.345);
     }
 </style>
 
@@ -80,7 +88,7 @@
 
         <div class="mb-3">
             <label class="form-label">Current Image</label><br>
-            <img src="<%= imageUrl %>" alt="Listing Image" width="40%" class="preview-img">
+            <img src="<%= imageUrl %>" alt="Listing Image"  class="preview-img">
         </div>
 
         <div class="mb-3">

@@ -9,24 +9,36 @@
     <div class="container-fluid show-container">
 
         <!-- Listing Image + Details -->
+        <div class="heading text-center">
+            <h2>
+                <%= listing.title %>
+            </h2>
+            <p class="text-muted">
+                <i class="fa-solid fa-location-dot me-1"></i>
+                <%=listing.location %>, <%= listing.country %>
+            </p>
+        </div>
         <div class="row main-content">
             <div class="col-md-7 img-container">
                 <img src="<%= listing.image.url %>" alt="Listing_image" class="img-fluid listing-image">
             </div>
+            <div class="col-md-5 info-section card">
+                <div class="title">
+                    <h2>
+                        <%= listing.title %>
+                    </h2>
+                    <p><strong><i class="fa-solid fa-location-dot me-1"></i></strong>
 
-            <div class="col-md-5 info-section">
-                <h2>
-                    <%= listing.title %>
-                </h2>
-                <p><i>Owned By: <%= listing.owner.username %></i></p>
+                        <%= listing.location %>, <%= listing.country %>
+                    </p>
+                </div>
+                <p><i>Hosted By: <%= listing.owner.username %></i></p>
                 <p>
                     <%= listing.description %>
                 </p>
 
                 <div>
-                    <p><strong>Location:</strong>
-                        <%= listing.location %>, <%= listing.country %>
-                    </p>
+
                     <p><strong>Price:</strong> ₹<%= listing.price.toLocaleString("en-IN") %>/Night</p>
 
                     <p><strong>Reviews Summary</strong></p>
@@ -93,9 +105,9 @@
             <div class="row reviews-section">
                 <div class="col-md-11 mx-auto">
                     <h4>All Reviews</h4>
-                    <div class="row">
+                    <div class="row m-2">
                         <% for(let review of listing.reviews) { %>
-                            <div class="card col-md-5 m-3">
+                            <div class="card col-md-5 review-card m-2">
                                 <div class="card-body">
                                     <h6 class="card-title">@<%= review.author.username %>
                                     </h6>
@@ -106,12 +118,12 @@
                                     </p>
                                 </div>
                                 <% if(currUser && currUser._id.equals(review.author._id)){ %>
-                                <form class="mb-3 ms-3"
-                                    action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE"
-                                    method="post">
-                                    <button class="btn btn-sm btn-dark">Delete</button>
-                                </form>
-                                <% } %>
+                                    <form class="mb-3 ms-3"
+                                        action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE"
+                                        method="post">
+                                        <button class="btn btn-sm btn-dark">Delete</button>
+                                    </form>
+                                    <% } %>
                             </div>
                             <% } %>
                     </div>

@@ -10,7 +10,7 @@ module.exports.isLoggedIn = (req,res,next) => {
         req.flash("error","You must Login first to create a Listing!!");
         return res.redirect("/login")
     }
-    next();
+    next(); 
 }
 
 module.exports.saveRedirectUrl = (req,res,next) => {

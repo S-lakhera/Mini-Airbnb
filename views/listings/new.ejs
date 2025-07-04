@@ -21,6 +21,13 @@
         transition: height 0.4s ease;
     }
 
+    @media (max-width:400px){
+        .form-container{
+            width:100%;
+            padding: 20px;
+            min-width: 300px;
+        }
+    }
     .form-step {
         display: none;
         transition: opacity 0.5s ease;
@@ -49,7 +56,7 @@
     }
 
     .btn-next {
-        background-color: #2196f3;
+        background-color: #e41d55;
         color: white;
     }
 
@@ -59,7 +66,7 @@
     }
 
     .btn-submit {
-        background-color: #4caf50;
+        background-color:  #e41d55;
         color: white;
     }
 
@@ -82,12 +89,12 @@
     }
 
     .progress-step::before {
-        content: counter(step);
+        content: counter(step); 
         counter-increment: step;
     }
 
     .progress-step.active {
-        background-color: #2196f3;
+        background-color: #e41d55;
         color: white;
     }
 
@@ -108,7 +115,7 @@
     }
 
     .progress-step.active::after {
-        background-color: #2196f3;
+        background-color: #e41d55;
     }
 </style>
 
@@ -116,7 +123,6 @@
     <div class="progressbar">
         <div class="progress-step step1 active"></div>
         <div class="progress-step step2"></div>
-        <div class="progress-step step3"></div>
     </div>
 
     <form action="/listings" method="POST" enctype="multipart/form-data" class="listing-form needs-validation" novalidate>
@@ -151,11 +157,11 @@
 
             <div class="step-buttons">
                 <span></span>
-                <button type="button" class="btn-nav btn-next">Next ➡️</button>
+                <button type="button" class="btn-nav btn-next">Next</button>
             </div>
         </div>
 
-        <!-- Step 2 -->
+        <!-- Merged Step 2 -->
         <div class="form-step step-2">
             <div class="mb-3">
                 <label for="image" class="form-label">Upload Image</label>
@@ -167,14 +173,6 @@
                 <input type="number" name="listing[price]" placeholder="Ex. 1500/night" class="form-control" required>
             </div>
 
-            <div class="step-buttons">
-                <button type="button" class="btn-nav btn-back">⬅️ Back</button>
-                <button type="button" class="btn-nav btn-next">Next ➡️</button>
-            </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="form-step step-3">
             <div class="mb-3">
                 <label for="location" class="form-label">Location</label>
                 <input type="text" name="listing[location]" class="form-control" placeholder="Jaipur, Rajasthan" required>
@@ -186,8 +184,8 @@
             </div>
 
             <div class="step-buttons">
-                <button type="button" class="btn-nav btn-back">⬅️ Back</button>
-                <button type="submit" class="btn-nav btn-submit">🚀 Submit</button>
+                <button type="button" class="btn-nav btn-back">Back</button>
+                <button type="submit" class="btn-nav btn-submit">Submit</button>
             </div>
         </div>
     </form>
