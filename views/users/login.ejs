@@ -1,101 +1,130 @@
 <% layout('/layouts/boilerplate') -%>
 
-<style>
-    body {
-        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
-    }
+    <style>
 
-    .login-container {
-        max-width: 450px;
-        margin: 12px auto;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
-        transition: 0.3s ease;
-    }
+        .login-container {
+            max-width: 450px;
+            margin: 12px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+            transition: 0.3s ease;
+            margin-bottom: 5rem;
+        }
 
-    .login-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .login-header h2 {
-        font-weight: 700;
-        font-size: 2rem;
-        padding: 10px 0;
-        background: #f2f2f2;
-        border-radius: 12px;
-    }
+        .login-header h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            padding: 10px 15px;
+            background: #f2f2f2;
+            border-radius: 12px;
+        }
 
-    .form-control {
-        border-radius: 12px;
-    }
+        .form-control {
+            border-radius: 12px;
+        }
 
-    .btn-login {
-        width: 100%;
-        background-color: #2196f3;
-        color: white;
-        font-weight: 600;
-        border: none;
-        padding: 12px;
-        border-radius: 12px;
-        transition: 0.3s ease;
-    }
+        .btn-login {
+            width: 100%;
+            background-color: #e41d55;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            transition: 0.3s ease;
+        }
 
-    .btn-login:hover {
-        background-color: #1976d2;
-    }
+        .btn-login:hover {
+            background-color: #c41244;
+            color: white;
+        }
 
-    .login-footer {
-        margin-top: 20px;
-        text-align: center;
-    }
+        .login-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
 
-    .login-footer a {
-        text-decoration: none;
-        font-weight: 600;
-        color: #2196f3;
-    }
+        .login-footer a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #e41d55;
+        }
 
-    .login-footer a:hover {
-        text-decoration: underline;
-    }
-</style>
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
 
-<div class="login-container">
-    <div class="login-header">
-        <h2>Login to Wanderlust</h2>
+        /* === Dark Mode === */
+        .dark-mode body {
+            background: linear-gradient(135deg, #121212, #1e1e1e) !important;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .login-container {
+            background: rgba(30, 30, 30, 0.8);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+        }
+
+        .dark-mode .login-header h2 {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .form-control {
+            background-color: #2e2e2e;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
+
+        .dark-mode .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .dark-mode .btn-login {
+            background-color: #e41d55;
+        }
+
+        .dark-mode .btn-login:hover {
+            background-color: #c41244;
+        }
+
+        .dark-mode .login-footer a {
+            color: #ff6584;
+        }
+    </style>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Login to Wanderlust</h2>
+        </div>
+
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Username..."
+                    required>
+                <div class="invalid-feedback">Username is required.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password..."
+                    required>
+                <div class="invalid-feedback">Password is required.</div>
+            </div>
+
+            <button type="submit" class="btn btn-login mt-2">🔐 Login</button>
+
+            <div class="login-footer">
+                <p>Not registered yet? <a href="/signup"><u>Sign up here</u></a></p>
+            </div>
+        </form>
     </div>
-
-    <form action="/login" method="POST" class="needs-validation" novalidate>
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text"
-                name="username"
-                id="username"
-                class="form-control"
-                placeholder="Username..."
-                required>
-            <div class="invalid-feedback">Username is required.</div>
-        </div>
-
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password"
-                name="password"
-                id="password"
-                class="form-control"
-                placeholder="Password..."
-                required>
-            <div class="invalid-feedback">Password is required.</div>
-        </div>
-
-        <button type="submit" class="btn btn-login mt-2">🔐 Login</button>
-
-        <div class="login-footer">
-            <p>Not registered yet? <a href="/signup"><u>Sign up here</u></a></p>
-        </div>
-    </form>
-</div>

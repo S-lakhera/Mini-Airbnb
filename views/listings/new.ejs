@@ -1,9 +1,6 @@
 <% layout('/layouts/boilerplate') -%>
 
 <style>
-    body {
-        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
-    }
 
     .form-container {
         min-width: 450px;
@@ -19,15 +16,17 @@
         position: relative;
         overflow: hidden;
         transition: height 0.4s ease;
+        margin-bottom: 5rem;
     }
 
-    @media (max-width:400px){
-        .form-container{
-            width:100%;
+    @media (max-width: 400px) {
+        .form-container {
+            width: 100%;
             padding: 20px;
             min-width: 300px;
         }
     }
+
     .form-step {
         display: none;
         transition: opacity 0.5s ease;
@@ -55,7 +54,8 @@
         opacity: 0.85;
     }
 
-    .btn-next {
+    .btn-next,
+    .btn-submit {
         background-color: #e41d55;
         color: white;
     }
@@ -63,11 +63,6 @@
     .btn-back {
         background-color: #ccc;
         color: black;
-    }
-
-    .btn-submit {
-        background-color:  #e41d55;
-        color: white;
     }
 
     .progressbar {
@@ -89,7 +84,7 @@
     }
 
     .progress-step::before {
-        content: counter(step); 
+        content: counter(step);
         counter-increment: step;
     }
 
@@ -115,6 +110,52 @@
     }
 
     .progress-step.active::after {
+        background-color: #e41d55;
+    }
+
+    /* === Dark Mode Support === */
+    .dark-mode body {
+        background: linear-gradient(135deg, #121212, #1e1e1e) !important;
+        color: #f0f0f0;
+    }
+
+    .dark-mode .form-container {
+        background: rgba(30, 30, 30, 0.8);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .dark-mode .form-control,
+    .dark-mode .form-select,
+    .dark-mode textarea {
+        background-color: #2e2e2e;
+        color: #f1f1f1;
+        border: 1px solid #444;
+    }
+
+    .dark-mode .form-control::placeholder,
+    .dark-mode textarea::placeholder {
+        color: #aaa;
+    }
+
+    .dark-mode .btn-nav.btn-back {
+        background-color: #555;
+        color: white;
+    }
+
+    .dark-mode .progress-step {
+        background-color: #555;
+    }
+
+    .dark-mode .progress-step.active {
+        background-color: #e41d55;
+        color: white;
+    }
+
+    .dark-mode .progress-step::after {
+        background-color: #666;
+    }
+
+    .dark-mode .progress-step.active::after {
         background-color: #e41d55;
     }
 </style>
@@ -161,7 +202,7 @@
             </div>
         </div>
 
-        <!-- Merged Step 2 -->
+        <!-- Step 2 -->
         <div class="form-step step-2">
             <div class="mb-3">
                 <label for="image" class="form-label">Upload Image</label>

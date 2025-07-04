@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-5 info-section card">
                 <div class="title">
-                    <h2>
+                    <h2> 
                         <%= listing.title %>
                     </h2>
                     <p><strong><i class="fa-solid fa-location-dot me-1"></i></strong>
@@ -32,10 +32,8 @@
                         <%= listing.location %>, <%= listing.country %>
                     </p>
                 </div>
-                <p><i>Hosted By: <%= listing.owner.username %></i></p>
-                <p>
-                    <%= listing.description %>
-                </p>
+                <p><%= listing.description %></p>
+                <p><strong>Hosted By: </strong><i></i><%= listing.owner.username %></i></p>
 
                 <div>
 
@@ -135,3 +133,20 @@
     </div>
 
     <script src="/JS/map.js"></script>
+<script>
+    window.addEventListener("load", () => {
+        const tl = gsap.timeline({ defaults: { duration: 0.5, ease: "power2.out" } });
+
+        tl.from(".heading h2", { y: -50, opacity: 0 })
+          .from(".heading p", { y: -20, opacity: 0 }, "-=0.2")
+          .from(".img-container", { scale:0.9, opacity: 0 }, "-=0.2")
+          .from(".info-section", { scale:0.9, opacity: 0 }, "-=0.1")
+          .from("#map", { scale: 0.8, opacity: 0 }, "-=0.4")
+          .from(".review-form-section", { scale: 0.9, opacity: 0 }, "-=0.2")
+          .from(".reviews-section .review-card", {
+              opacity: 0,
+              y: 50,
+              stagger: 0.2
+          }, "-=0.4");
+    });
+</script>

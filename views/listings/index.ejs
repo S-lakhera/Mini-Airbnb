@@ -4,7 +4,7 @@
     <div class="filter" data-category="All">
       <div><i class="fa-solid fa-earth-americas"></i></div>
       <p>All</p>
-    </div>
+    </div> 
     <div class="filter" data-category="Trending">
       <div> <i class="fa-solid fa-fire"></i></div>
       <p>Trending</p>
@@ -48,16 +48,13 @@
         <label class="form-check-label" for="flexSwitchCheckDefault">Taxes</label>
       </div>
     </div>
-    <!-- <button class="show-more-btn" id="showMoreBtn">
-      <i class="fa-solid fa-chevron-down"></i> More
-    </button> -->
   </div> <br>
-  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2" id="listing-container">
+  <div class="row row-cols-lg-4" id="listing-container">
     <% for(let listing of listings) { %>
       <a href="/listings/<%= listing._id %>">
         <div class="card listing-card" id="card" data-category="<%= listing.category %>"
           data-location="<%= listing.location %> <%= listing.country %> <%= listing.title %>">
-          <img src="<%= listing.image.url %>" class="card-img-top" style="height: 16rem;">
+          <img src="<%= listing.image.url %>" class="card-img-top" style="width: 200px; height: 300px;">
           <div class="card-img-overlay"></div>
           <div class="card-body">
             <b>
@@ -72,13 +69,5 @@
       </a>
       <% } %>
   </div>
-  <!-- <div class="text-center my-4">
-    <button id="load-more-btn" class="btn btn-danger px-4">Load More</button>
-  </div> -->
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("page-loaded");
-    });
-  </script>
-  <!-- <script src="/JS/loadMore.js" defer></script> -->
+
   <script src="/JS/filterListing.js"></script>

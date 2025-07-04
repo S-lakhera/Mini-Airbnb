@@ -1,13 +1,55 @@
+/* Navbar */
+
+.navbar {
+    height: 5rem;
+    background-color: #f6f5f5;
+}
+
+.fa-compass-drafting {
+    color: #e41d55 ;
+    font-size: 2rem;
+    margin-left: 17px;
+}
+
+.nav-link {
+    color: #222 !important;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+    transition: 0.25s;
+    border-bottom: 2px solid #fe424d !important;
+}
+
 .search-area {
+    /* width: 30vw; */
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 0, 0, 0.074);
+    /* border: 1px solid rgba(0, 0, 0, 0.074); */
     border-radius: 5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.099);
-    padding: 0.4rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 0.4rem 1rem;
 
 }
+
+/* Center search bar in navbar */
+.navbar .search-area {
+  position: absolute;
+  left: 44%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* Optional: make the search bar narrower on small screens */
+@media (max-width: 768px) {
+  .navbar .search-area {
+    display: none;
+  }
+}
+
 
 .search-btn {
     background-color: #e41d55;
@@ -31,9 +73,10 @@
 }
 
 .search-inp {
+    width: 100%;
     border-radius: 25px !important;
     padding: 0.3rem 2rem ;
-}
+} 
 
 
 .collapsed-search-area {
@@ -99,4 +142,48 @@
         margin-left: 1rem !important;
         /* padding: 6px 12px; */
     }
+}
+
+/* Navbar */
+.dark-mode .navbar {
+  background-color: #1f1f1f !important;
+  border-bottom: 1px solid #333;
+}
+.dark-mode .nav-link {
+  color: #e0e0e0 !important;
+}
+/* Dark mode search box styling */
+.dark-mode .search-inp,
+.dark-mode .search-inp-2 {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+.dark-mode .search-inp::placeholder,
+.dark-mode .search-inp-2::placeholder {
+  color: #ccc;
+}
+
+.dark-mode .search-btn,
+.dark-mode .search-btn-2 {
+  background-color: #e41d55;
+  color: white;
+  border: none;
+}
+
+/* Focus fix */
+.dark-mode .search-inp:focus,
+.dark-mode .search-inp-2:focus {
+  background-color: #2a2a2a !important;
+  color: #f0f0f0 !important;
+  border-color: #e41d55 !important;
+  box-shadow: 0 0 0 0.15rem rgba(228, 29, 85, 0.25) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #f0f0f0 !important;
+  caret-color: white;
 }

@@ -1,10 +1,6 @@
 <% layout('/layouts/boilerplate') -%>
 
 <style>
-    body {
-        background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
-    }
-
     .signup-container {
         max-width: 500px;
         margin: 12px auto;
@@ -14,6 +10,7 @@
         border-radius: 20px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
         transition: 0.3s ease;
+        margin-bottom: 5rem;
     }
 
     .signup-header {
@@ -24,7 +21,7 @@
     .signup-header h2 {
         font-weight: 700;
         font-size: 2rem;
-        padding: 10px 0;
+        padding: 10px 15px;
         background: #f2f2f2;
         border-radius: 12px;
     }
@@ -35,7 +32,7 @@
 
     .btn-signup {
         width: 100%;
-        background-color: #4caf50;
+        background-color: #e41d55;
         color: white;
         font-weight: 600;
         border: none;
@@ -45,7 +42,8 @@
     }
 
     .btn-signup:hover {
-        background-color: #3e8e41;
+        background-color: #c41244;
+        color: white;
     }
 
     .signup-footer {
@@ -56,11 +54,49 @@
     .signup-footer a {
         text-decoration: none;
         font-weight: 600;
-        color: #2196f3;
+        color: #e41d55;
     }
 
     .signup-footer a:hover {
         text-decoration: underline;
+    }
+
+    /* === Dark Mode === */
+    .dark-mode body {
+        background: linear-gradient(135deg, #121212, #1e1e1e) !important;
+        color: #f0f0f0;
+    }
+
+    .dark-mode .signup-container {
+        background: rgba(30, 30, 30, 0.8);
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+    }
+
+    .dark-mode .signup-header h2 {
+        background: #2a2a2a;
+        color: #e0e0e0;
+    }
+
+    .dark-mode .form-control {
+        background-color: #2e2e2e;
+        color: #f1f1f1;
+        border: 1px solid #444;
+    }
+
+    .dark-mode .form-control::placeholder {
+        color: #bbb;
+    }
+
+    .dark-mode .btn-signup {
+        background-color: #e41d55;
+    }
+
+    .dark-mode .btn-signup:hover {
+        background-color: #c41244;
+    }
+
+    .dark-mode .signup-footer a {
+        color: #e41d55;
     }
 </style>
 
