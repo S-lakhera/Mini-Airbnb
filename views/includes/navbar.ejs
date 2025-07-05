@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top mb-3">
   <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass-drafting"></i></a>
 
-  <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler me-2 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+    <i class="fa-solid fa-bars"></i>
   </button>
 
   <div class="navbar-nav search-area">
@@ -13,18 +13,17 @@
     </form>
   </div>
 
-  <div class="navbar-nav ms-auto collapsed-search-area">
+  <div class=" ms-auto collapsed-search-area">
     <form role="search" class="d-flex" onsubmit="return false;">
       <input type="search" class="form-control search-inp-2 me-2" placeholder="Search" aria-label="search">
       <button class="btn search-btn-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
   </div>
  
-
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ms-auto ">
-      <div class="theme-toggle mx-3 mt-1" style="cursor: pointer;">
-        <span id="dark-mode-icon" class="fs-5">🌙</span>
+      <div class="theme-toggle mx-3" style="cursor: pointer;">
+        <span id="dark-mode-icon" class="fs-5"><i class="fa-solid fa-moon"></i></span>
       </div>
       <a class="nav-link" href="/listings/new">Become a host</a>
 
@@ -45,13 +44,13 @@
   const enableDarkMode = () => {
     document.body.classList.add("dark-mode");
     localStorage.setItem("darkMode", "enabled");
-    darkModeIcon.textContent = "☀️";
+    darkModeIcon.innerHTML = '<i class="fa-solid fa-sun"></i>';
   };
 
   const disableDarkMode = () => {
     document.body.classList.remove("dark-mode");
     localStorage.setItem("darkMode", "disabled");
-    darkModeIcon.textContent = "🌙";
+    darkModeIcon.innerHTML = '<i class="fa-solid fa-moon"></i>';
   };
 
   // On page load

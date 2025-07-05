@@ -113,17 +113,18 @@ footer {
 
 /* Card */
 .listing-card {
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem !important;
     padding: 0.5rem !important;
     border: none !important;
     cursor: pointer;
     transition: none;
     border-radius: 2rem !important;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+    transition: 0.25s ease-out;
   }
 
   .listing-card:hover{
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
     scale: 1.01;
   }
 
@@ -180,6 +181,7 @@ a {
     flex-wrap: wrap;
     border: 1px dotted rgba(0, 0, 0, 0.376);
     border-radius:  40% 40% / 30em 35em 30em 35em;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
    
     justify-content: center;
     gap: 2rem;
@@ -260,6 +262,7 @@ a {
 .dark-mode #filters {
   background-color: #1a1a1a;
   border-color: #444;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.3);
 }
 .dark-mode .filter p {
   color: #f1f1f1;
@@ -268,6 +271,11 @@ a {
   background-color: #1e1e1e;
   border: 1px solid #333;
   color: #ddd;
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .listing-card:hover {
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+  scale: 1.01;
 }
 .dark-mode .card-text {
   color: #ddd;

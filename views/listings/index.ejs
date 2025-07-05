@@ -49,12 +49,12 @@
       </div>
     </div>
   </div> <br>
-  <div class="row row-cols-lg-4" id="listing-container">
+  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2" id="listing-container">
     <% for(let listing of listings) { %>
       <a href="/listings/<%= listing._id %>">
         <div class="card listing-card" id="card" data-category="<%= listing.category %>"
           data-location="<%= listing.location %> <%= listing.country %> <%= listing.title %>">
-          <img src="<%= listing.image.url %>" class="card-img-top" style="width: 200px; height: 300px;">
+          <img src="<%= listing.image.url %>" class="card-img-top" style=" height: 290px;">
           <div class="card-img-overlay"></div>
           <div class="card-body">
             <b>

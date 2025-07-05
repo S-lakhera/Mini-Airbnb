@@ -12,14 +12,6 @@ tl.from(".fa-compass-drafting", {
     duration: 0.15,
     opacity: 0
 });
-
-tl.from(".navbar-nav a", {
-    y: -80,
-    duration: 0.35,
-    stagger: 0.2,
-    opacity: 0
-});
-
 // 🔍 Animate search input boxes
 tl.from([".search-inp", ".search-inp-2", ".search-btn", ".search-btn-2"], {
     scale: 0.9,
@@ -34,21 +26,22 @@ tl.from("#dark-mode-icon", {
     y: -40,
     opacity: 0,
     rotate: 180,
-    duration: 0.5,
+    duration: 0.25,
     ease: "power2.out"
 });
 
-
-tl.from("#card", {
-    duration: 0.5,
+tl.from(".navbar-nav a", {
+    y: -80,
+    duration: 0.35,
+    stagger: 0.2,
     opacity: 0
-})
+});
 
 // Page entrance animation
 gsap.from(".form-container", {
     y: -50,
     opacity: 0,
-    duration: 0.6,
+    duration: 0.5,
     ease: "power2.out"
 });
 
