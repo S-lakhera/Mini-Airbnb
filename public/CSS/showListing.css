@@ -1,11 +1,11 @@
 /* showListing.css */
 
 .show-container {
-  /* margin-top: 20px; */
+  padding-top: 5vh;
   /* padding: 9px; */
   margin-bottom: 2rem;
 }
-
+ 
 .main-content {
   display: flex;
   flex-wrap: wrap;
@@ -58,8 +58,6 @@
     max-height: 400px;
   }
   .info-section{
-    /* text-align: center;
-    align-items: center; */
     margin-top: 20px;
     border-radius: 25px;
     padding: 20px;

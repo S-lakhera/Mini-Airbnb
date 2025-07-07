@@ -1,6 +1,6 @@
 <% layout('/layouts/boilerplate') -%>
   <!-- <br> -->
-  <div id="filters">
+  <div id="filters" class="mt-3">
     <div class="filter" data-category="All">
       <div><i class="fa-solid fa-earth-americas"></i></div>
       <p>All</p>
@@ -59,10 +59,11 @@
           <div class="card-body">
             <b>
               <%= listing.title %>
-            </b><br>
+            </b>
             <p class="card-text">
-              Price: ₹ <%= listing.price?.toLocaleString("en-IN") || "N/A" %>/Night
-                <i class="tax-Info">&nbsp; &nbsp; +18% GST</i>
+              <% const tax = listing.price*0.18 %>
+              Rent Price: ₹ <%= listing.price?.toLocaleString("en-IN") || "N/A" %> <i class="tax-Info">+ <%= tax.toLocaleString("en-IN") %> GST </i>
+                
             </p>
           </div>
         </div>

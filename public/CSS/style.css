@@ -186,7 +186,7 @@ a {
     justify-content: center;
     gap: 2rem;
     padding: 7px 1.5rem 6px 1.5rem;
-    /* align-items: center; */
+    margin-bottom: 10px;
   }
   .filter{
     text-align: center;
@@ -238,7 +238,7 @@ a {
 }
 
 #listing-container a {
-    animation: fadeIn 0.4s ease-in;
+    animation: fadeIn 0.2s ease-in;
   }
   
   @keyframes fadeIn {
