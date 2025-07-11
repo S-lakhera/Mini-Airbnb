@@ -1,11 +1,11 @@
 /* Navbar */
 
 .navbar {
-  position: relative;
-  height: 5rem;
+  position: sticky;
+  height: 4rem;
   background-color: #f6f5f5;
   overflow: visible; /* allow menu to expand outside */
-  z-index: 100;
+  z-index: 100; 
 }
 
 .fa-compass-drafting {
