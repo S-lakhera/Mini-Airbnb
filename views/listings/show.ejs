@@ -107,7 +107,7 @@
                         <% for(let review of listing.reviews) { %>
                             <div class="card col-md-5 review-card m-2">
                                 <div class="card-body">
-                                    <h6 class="card-title">@<%= review.author.username %>
+                                    <h6 class="card-title">@ <%= review.author.username %>
                                     </h6>
                                     <p class="card-text starability-result" data-rating="<%= review.rating %>">
                                     </p>
@@ -143,10 +143,5 @@
           .from(".info-section", { scale:0.9, opacity: 0 }, "-=0.1")
           .from("#map", { scale: 0.8, opacity: 0 }, "-=0.4")
           .from(".review-form-section", { scale: 0.9, opacity: 0 }, "-=0.2")
-          .from(".reviews-section .review-card", {
-              opacity: 0,
-              y: 50,
-              stagger: 0.2
-          }, "-=0.4");
     });
 </script>
